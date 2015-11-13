@@ -20,7 +20,7 @@ module.exports = function ( grunt ) {
 		, stylus: {
 			compile: {
 				files: {
-					'public/build/stylesheets/blog.min.css': [ 'public/stylesheets/blog/grid.styl', 'public/stylesheets/blog/base.styl' ]
+					'public/build/stylesheets/blog.min.css': 'public/stylesheets/blog/base.styl'
 				}
 			}
 		}
