@@ -33,7 +33,9 @@
 			touchPosition = position;
 		}
 
-		dragLength = dragLength + ( position - touchPosition );
+		var initialTouch = touchPosition || 0;
+		console.log(touchPosition, position);
+		dragLength = dragLength + ( position - initialTouch);
 
 	}, true);
 
