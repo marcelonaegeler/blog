@@ -22,6 +22,7 @@ module.exports = function ( grunt ) {
 			compile: {
 				files: {
 					'public/build/stylesheets/blog.min.css': [ 'public/stylesheets/blog/grid.styl', 'public/stylesheets/blog/base.styl' ]
+					, 'public/build/stylesheets/admin.min.css': [ 'public/stylesheets/admin/grid.styl', 'public/stylesheets/admin/base.styl', 'public/stylesheets/admin/theme.styl' ]
 				}
 			}
 		}
