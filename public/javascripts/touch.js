@@ -1,4 +1,5 @@
 ( function () {
+	"use strict";
 
 	var body = document.body
 		, touchPosition = undefined
