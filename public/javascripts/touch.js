@@ -5,15 +5,16 @@
 		, touchPosition = undefined
 		, dragDistance = 0 // Get the drag distance and direction
 		, menuButton = document.getElementById( 'show-menu' )
+		, dragBound = 50
 		;
 
 	var touchEvent = function () {
 
-		if ( body.classList.contains( 'active' ) && dragDistance <= 50 ) {
+		if ( body.classList.contains( 'nav-active' ) && dragDistance <= -(dragBound) ) {
 
 			menuButton.click();
 
-		} else if ( touchPosition < 40 && !body.classList.contains( 'active' ) && dragDistance >= 50 ) {
+		} else if ( touchPosition < 40 && !body.classList.contains( 'nav-active' ) && dragDistance >= dragBound ) {
 			
 			menuButton.click();
 

@@ -16,7 +16,7 @@
 				return false;
 			}
 
-			if ( body.classList.contains( 'active' ) ) {
+			if ( body.classList.contains( 'nav-active' ) ) {
 				hide();
 			} else {
 				show();
@@ -25,11 +25,11 @@
 
 		var show = function () {
 			menu.style.visibility = 'visible';
-			body.classList.add( 'active' );
+			body.classList.add( 'nav-active' );
 		};
 
 		var hide = function () {
-			body.classList.remove( 'active' );
+			body.classList.remove( 'nav-active' );
 			animating = true;
 
 			setTimeout( function () {
