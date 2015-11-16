@@ -11,9 +11,10 @@ module.exports = function ( grunt ) {
 		}
 
 		, uglify: {
-			build: {
-				src: 'public/javascripts/script.js'
-				, dest: 'public/build/javascripts/script.min.js'
+			blog: {
+				files: {
+					'public/build/javascripts/script.min.js': [ 'public/javascripts/script.js', 'public/javascripts/touch.js' ]
+				}
 			}
 		}
 
