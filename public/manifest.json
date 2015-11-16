@@ -1,0 +1,17 @@
+{
+	"name": "Blog do Marcelo",
+	"short_name": "Blog",
+	"description": "Blog para aprender novas tecnologias",
+	"developer": {
+		"name": "Marcelo A Naegeler",
+		"url": "https://github.com/marcelonaegeler"
+	},
+	"icons": {
+		"128": "/public/images/icon-128.png"
+	},
+	"default_locale": "en",
+	"start_url": "/",
+	"display": "standalone",
+	"theme_color": "#7B1FA2",
+	"background_color": "#7B1FA2"
+}

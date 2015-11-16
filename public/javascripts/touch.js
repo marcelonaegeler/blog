@@ -1,46 +1,42 @@
 ( function () {
 
-	var canvas = document.getElementsByTagName( 'canvas' )[0];
-	var context = canvas.getContext( '2d' );
-
-	var touchPosition = undefined
-		, dragLength = 0;
+	var body = document.body
+		, touchPosition = undefined
+		, dragDistance = 0 // Get the drag distance and direction
+		, menuButton = document.getElementById( 'show-menu' )
+		;
 
 	var touchEvent = function () {
-		console.log( dragLength );
-		if ( touchPosition ) {
-			context.fillStyle = '#000';
-			context.fillRect( 0, 0, 500, 500 );
+
+		if ( body.classList.contains( 'active' ) && dragDistance <= 50 ) {
+
+			menuButton.click();
+
+		} else if ( touchPosition < 40 && !body.classList.contains( 'active' ) && dragDistance >= 50 ) {
+			
+			menuButton.click();
+
 		}
+
+		touchPosition = undefined;
+		
 	};
 
-	canvas.addEventListener( 'touchstart', function ( event ) {
+	body.addEventListener( 'touchmove', function ( event ) {
 		var position = event.touches[0].clientX;
 
-		if ( position <= 30 ) {
+		if ( typeof touchPosition === 'undefined' ) {
+
 			touchPosition = position;
-		} else {
-			touchPosition = undefined;
+
 		}
-		dragLength = 0;
+
+		dragDistance = position - touchPosition;
 
 	}, true);
 
-	canvas.addEventListener( 'touchmove', function ( event ) {
-		var position = event.touches[0].clientX;
-
-		if ( touchPosition !== undefined && position > touchPosition ) {
-			touchPosition = position;
-		}
-
-		var initialTouch = touchPosition || 0;
-		console.log(touchPosition, position);
-		dragLength = dragLength + ( position - initialTouch);
-
-	}, true);
-
-	canvas.addEventListener( 'touchend', function ( event ) {
+	body.addEventListener( 'touchend', function ( event ) {
 		touchEvent();
 	}, true);
-	
+
 }() );

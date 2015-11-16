@@ -1,13 +1,14 @@
 extends layout/base.jade
 
 block style
+	link(href="/manifest.json", rel="manifest")
 	link(href="/build/stylesheets/blog.min.css", rel="stylesheet", type="text/css")
 
 block script
 	script(src="/build/javascripts/script.min.js")
 
 block body
-	include ./header.jade
+	include ./layout/header.jade
 
 	div.content
 		//- List posts
