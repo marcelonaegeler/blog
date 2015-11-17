@@ -1,3 +1,7 @@
+@import "../_base"
+@import "nav"
+
+
 .nav
 	background theme-color
 	color text-color
@@ -6,7 +10,6 @@
 	position fixed
 	top 0
 	width 100%
-	box-shadow 0px 2px 10px #444
 
 .nav--btn
 	display block
@@ -44,6 +47,12 @@
 .nav--animate .mdi-arrow-left
 	opacity 0
 	transform rotate( -145deg )
+
+/*
+* Body global classes
+*/
+body.scrolled .nav
+	box-shadow 0 1px 5px #111
 
 body.nav-active .nav--animate .mdi-menu
 	opacity 0

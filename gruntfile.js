@@ -21,8 +21,8 @@ module.exports = function ( grunt ) {
 		, stylus: {
 			compile: {
 				files: {
-					'public/build/stylesheets/blog.min.css': 'public/stylesheets/blog/base.styl'
-					, 'public/build/stylesheets/admin.min.css': [ 'public/stylesheets/admin/grid.styl', 'public/stylesheets/admin/base.styl', 'public/stylesheets/admin/theme.styl' ]
+					'public/build/stylesheets/blog.min.css': 'public/stylesheets/blog/theme.styl'
+					, 'public/build/stylesheets/admin.min.css': 'public/stylesheets/admin/theme.styl'
 				}
 			}
 		}

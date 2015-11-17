@@ -51,4 +51,20 @@
 
 	}() );
 
+
+	var windowScroll = ( function () {
+		var body = document.body.classList;
+
+		window.addEventListener( 'scroll', function () {
+			
+			if ( window.scrollY > 5 ) {
+				body.add( 'scrolled' );
+			} else {
+				body.remove( 'scrolled' );
+			}
+
+		}, true );
+
+	}() );
+
 }() );
