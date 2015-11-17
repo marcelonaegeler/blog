@@ -7,6 +7,7 @@
 		"url": "https://github.com/marcelonaegeler"
 	},
 	"icons": {
+		"64": "/public/images/icon-64.png",
 		"128": "/public/images/icon-128.png"
 	},
 	"default_locale": "en",
