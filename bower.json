@@ -1,9 +1,0 @@
-{
-  "name": "app-sou",
-  "version": "0.0.1",
-  "homepage": "",
-  "license": "MIT",
-  "dependencies": {
-    "mdi": "~1.3.41"
-  }
-}
