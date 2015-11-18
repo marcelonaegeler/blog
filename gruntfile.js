@@ -10,6 +10,7 @@ module.exports = function ( grunt ) {
 			}
 		}
 
+		/*
 		, uglify: {
 			blog: {
 				files: {
@@ -18,14 +19,12 @@ module.exports = function ( grunt ) {
 				}
 			}
 		}
+		*/
 
 		, babel: {
-			options: {
-				presets: [ 'es2015' ]
-			}
-			, dist: {
+			dist: {
 				files: {
-					'public/build/javascripts/babel.js': 'public/javascripts/babel.js'
+					'public/build/javascripts/babel.min.js': 'public/javascripts/babel.js'
 				}
 			}
 		}
@@ -41,12 +40,12 @@ module.exports = function ( grunt ) {
 
 	});
 
-	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
+	//grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-stylus' );
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-babel' );
 
 	grunt.registerTask( 'default', [ 'build' ] );
 
-	grunt.registerTask( 'build', [ 'uglify', 'babel','stylus' ] );
+	grunt.registerTask( 'build', [ 'babel','stylus' ] );
 };
