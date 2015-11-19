@@ -3,5 +3,6 @@
 /public/vendor
 
 /public/build
+/public/javascripts/transpiled
 
 .*.swp
