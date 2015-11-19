@@ -1,4 +1,4 @@
-( function () {
+;() => {
 	"use strict";
 
 	var body = document.body
@@ -8,7 +8,7 @@
 		, dragBound = 50
 		;
 
-	var touchEvent = function () {
+	var touchEvent = () => {
 
 		if ( body.classList.contains( 'nav-active' ) && dragDistance <= -(dragBound) ) {
 
@@ -24,7 +24,7 @@
 		
 	};
 
-	body.addEventListener( 'touchmove', function ( event ) {
+	body.addEventListener( 'touchmove', ( event ) => {
 		var position = event.touches[0].clientX;
 
 		if ( typeof touchPosition === 'undefined' ) {
@@ -37,8 +37,8 @@
 
 	}, true);
 
-	body.addEventListener( 'touchend', function ( event ) {
+	body.addEventListener( 'touchend', ( event ) => {
 		touchEvent();
 	}, true);
 
-}() );
+};

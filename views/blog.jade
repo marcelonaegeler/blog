@@ -1,7 +1,7 @@
 extends layout/base.jade
 
 block style
-	link(href="/build/stylesheets/blog.min.css", rel="stylesheet", type="text/css")
+	link(href="/build/stylesheets/theme.min.css", rel="stylesheet", type="text/css")
 
 block script
 	script(src="/build/javascripts/script.min.js")
@@ -10,10 +10,17 @@ block body
 	include ./layout/header.jade
 
 	div.content
-		//- List posts
-		- for post in posts
-			div.post
-				h1
-					a(href="#{ post.link || '#' }")= post.title
-				p.author= post.author
-				div= post.content
+
+		div.text-right
+			a.btn.navigation(href="/")
+				i.mdi.mdi-apps
+				| All posts
+
+		div#view-body
+			//- List posts
+			- for post in posts
+				div.post
+					h1
+						a.navigation(href="#{ post.link || '#' }")= post.title
+					p.author= post.author
+					div= post.content

@@ -36,6 +36,15 @@ col-12 = 100%
 .column + .column
 	margin-left column-margin
 
+.content
+	margin 0 auto
+
+.text-left
+	text-align left
+
+.text-right
+	text-align right
+
 /*
  * Widths
  */
@@ -81,6 +90,8 @@ col-12 = 100%
 	.column-small-12
 		width col-12
 	
+	.column + .column-small-12
+		margin-left 0
 
 @media screen and (min-width: 481px) and (max-width: 990px)
 	
@@ -132,6 +143,12 @@ col-12 = 100%
 	
 	.column-mid-12
 		width col-12
+
+	.column + .column-mid-12
+		margin-left 0
+
+	.content
+		max-width 800px
 
 
 @media screen and (min-width: 991px)
@@ -188,12 +205,17 @@ col-12 = 100%
 	.column-large-12
 		width col-12
 
+	.column + .column-large-12
+		margin-left 0
+
 	/*
 	* Hidden
 	**/
 	.hidden-large
 		display none
 	
-	.content-large
-		margin 0 auto
-		max-width 800px
+	.content
+		max-width 1000px
+
+	.text-center-large
+		text-align center

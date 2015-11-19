@@ -11,9 +11,19 @@
 
 		bg = nav.children[ 'menu-bg' ];
 	
-		var action = function () {
+		var action = function ( onlyAction ) {
 			if ( animating ) {
 				return false;
+			}
+
+			if ( onlyAction ) {
+
+				if ( onlyAction === 'hide' ) {
+					hide();
+				} else if ( onlyAction === 'show' ) {
+					show();
+				}
+				return;
 			}
 
 			if ( body.classList.contains( 'nav-active' ) ) {
@@ -49,7 +59,13 @@
 			action();
 		};
 
+		return {
+			action: action
+		};
 	}() );
+
+
+	window.sideNav = sideNav;
 
 
 	var windowScroll = ( function () {

@@ -1,43 +1,26 @@
-extends layout/base
+extends layout/base.jade
 
 block style
-	link(href="/build/stylesheets/admin.min.css", rel="stylesheet", type="text/css")
+	link(href="/build/stylesheets/theme.min.css", rel="stylesheet", type="text/css")
+
+block script
+	script(src="/build/javascripts/script.min.js")
 
 block body
+	include ./layout/header.jade
 
-	header.header
-		div.row.content-large
-			div.column.column-large-4
-				a.title(href="/admin") Admin do blog
+	div.content
 
-			div.column.column-large-7
-				a(href="#") Posts
-				a(href="#") Accounts
-				
-			div.column.column-large-1
-				a(href="#") Logout
+		div.text-right
+			a.btn.navigation(href="/")
+				i.mdi.mdi-apps
+				| All posts
 
-		
-	section.row.content-large.admin-content
-		div.column.column-large-4
-			h3.h3 Latest posts
-			ul
-				li
-					a(href="#") Post 03
-				li
-					a(href="#") Post 02
-				li
-					a(href="#") Post 01
-
-		div.column.column-large-8.post
-			form(action="/admin/post", method="POST")
-				div.post-options.text-right
-					button.btn.btn--danger(type="button") Cancel
-					button.btn.btn--success(type="submit") Save
-
-				div.post-content
-					div.form-control
-						input.input(type="text", placeholder="Title")
-					div.form-control
-						textarea.input(type="text", placeholder="Your text here...")
-
+		div#view-body
+			//- List posts
+			- for post in posts
+				div.post
+					h1
+						a.navigation(href="#{ post.link || '#' }")= post.title
+					p.author= post.author
+					div= post.content
