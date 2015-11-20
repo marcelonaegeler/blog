@@ -22,5 +22,6 @@ block body
 				div.post
 					h1
 						a.navigation(href="#{ post.link || '#' }")= post.title
-					p.author= post.author
-					div= post.content
+					div
+						|= post.content
+

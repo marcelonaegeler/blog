@@ -48,7 +48,7 @@ let app = (() => {
 
 			let self = this[ 1 ];
 
-			history.pushState( { page: self.href }, '' );
+			history.pushState( { page: self.href }, '', self.href );
 			changePage( self.href );
 		});
 
