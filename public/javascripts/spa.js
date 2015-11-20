@@ -14,6 +14,7 @@ let app = (() => {
 
 	var history = window.history
 		, navLinks
+		, editableFields
 		, stateObject = { page: '' };
 
 	let changePage = ( url ) => {
@@ -29,7 +30,7 @@ let app = (() => {
 
 				template.setTemplate( 'post', response.posts );
 
-				updateNavigationLinks();
+				updateEventListeners();
 			}
 			, error: function () {
 				template.setTemplate( 'notFound' );
@@ -38,9 +39,10 @@ let app = (() => {
 
 	};
 
-	let updateNavigationLinks = () => {
+	let updateEventListeners = () => {
 		
 		navLinks = document.getElementsByClassName( 'navigation' );
+		editableFields = document.getElementsByClassName( 'input-editable' );
 
 		navLinks.addEvent( 'click', function () {
 			let event = this[ 0 ];
@@ -52,6 +54,12 @@ let app = (() => {
 			changePage( self.href );
 		});
 
+		editableFields.addEvent( 'keyup', function () {
+			let self = this[ 1 ];
+
+			self.parentNode.getElementsByClassName( 'editable-content' )[0].innerHTML = self.value;
+		});
+
 	};
 
 	window.onpopstate = function ( event ) {
@@ -60,7 +68,7 @@ let app = (() => {
 
 	history.pushState({}, '');
 
-	updateNavigationLinks();
+	updateEventListeners();
 
 	return {
 		changePage: changePage

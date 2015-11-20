@@ -45,8 +45,7 @@ router.get( '/', ( req, res ) => {
 	];
 
 	var query = {
-		page: 'postList'
-		, posts: posts
+		posts: posts
 		, admin: true
 	};
 
@@ -57,6 +56,29 @@ router.get( '/', ( req, res ) => {
 	}
 });
 
+
+router.get( '/post', function ( req, res ) {
+
+	var posts = [
+		{
+			title: ''
+			, date: null
+			, author: ''
+			, content: ''
+		}
+	];
+
+	var query = {
+		posts: posts
+		, admin: true
+	};
+
+	if ( req.ajax ) {
+		return res.send( query );
+	} else {
+		return res.render( 'admin', query );
+	}
+});
 
 router.get( '/post/(:slug)', function ( req, res ) {
 
@@ -70,8 +92,7 @@ router.get( '/post/(:slug)', function ( req, res ) {
 	];
 
 	var query = {
-		page: 'post'
-		, posts: posts
+		posts: posts
 		, admin: true
 	};
 
