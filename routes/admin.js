@@ -15,7 +15,7 @@ router.get( '/', ( req, res ) => {
 			, date: new Date()
 			, author: 'Marcelo'
 			, content: 'Lorem ipsum sit dolor amet'
-			, link: '/post/01'
+			, link: '/admin/post/01'
 		}
 		, {
 			title: 'Post 02'
@@ -47,6 +47,7 @@ router.get( '/', ( req, res ) => {
 	var query = {
 		page: 'postList'
 		, posts: posts
+		, admin: true
 	};
 
 	if ( req.ajax ) {
@@ -71,12 +72,13 @@ router.get( '/post/(:slug)', function ( req, res ) {
 	var query = {
 		page: 'post'
 		, posts: posts
+		, admin: true
 	};
 
 	if ( req.ajax ) {
 		return res.send( query );
 	} else {
-		return res.render( 'blog', query );
+		return res.render( 'admin', query );
 	}
 });
 

@@ -20,7 +20,14 @@ block body
 			//- List posts
 			- for post in posts
 				div.post
-					h1
-						a.navigation(href="#{ post.link || '#' }")= post.title
-					p.author= post.author
-					div= post.content
+					if admin
+						form(action="#{ post.link }", method="POST")
+							div.form-btns.text-right
+								button.btn.btn--success(type="submit") Save
+
+							h1.editable
+								a.navigation(href="#{ post.link || '#' }")= post.title
+								input.form-input.input-editable(type="text", name="title", value="#{post.title}") 
+
+							div.editable= post.content
+								textarea.form-input.input-editable(name="content")= post.content
