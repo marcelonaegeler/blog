@@ -5,35 +5,35 @@
 			, date: new Date()
 			, author: 'Marcelo'
 			, content: 'Lorem ipsum sit dolor amet'
-			, link: '/admin/post/1'
+			, slug: '1'
 		}
 		, {
 			title: 'Post 02'
 			, date: new Date()
 			, author: 'Autor 02'
 			, content: 'Lorem ipsum sit dolor amet'
-			, link: '/post/2'
+			, slug: '2'
 		}
 		, {
 			title: 'Post 03'
 			, date: new Date()
 			, author: 'Autor 03'
 			, content: 'Lorem ipsum sit dolor amet'
-			, link: '/admin/post/3'
+			, slug: '3'
 		}
 		, {
 			title: 'Post 04'
 			, date: new Date()
 			, author: 'Autor 04'
 			, content: 'Lorem ipsum sit dolor amet'
-			, link: '/admin/post/4'
+			, slug: '4'
 		}
 		, {
 			title: 'Post 05'
 			, date: new Date()
 			, author: 'Autor 05'
 			, content: 'Lorem ipsum sit dolor amet'
-			, link: '/admin/post/5'
+			, slug: '5'
 		}
 	];
 	
@@ -42,12 +42,13 @@
 		var query = {
 			posts: posts
 			, admin: req.isAdmin
+			, page: 'posts-all'
 		};
 
 		if ( req.ajax ) {
 			return res.send( query );
 		} else {
-			return res.render( 'admin', query );
+			return res.render( 'blog', query );
 		}
 
 	};
@@ -59,12 +60,13 @@
 		var query = {
 			post: posts[ +postId - 1 ]
 			, admin: req.isAdmin
+			, page: 'posts-single'
 		};
 
 		if ( req.ajax ) {
 			return res.send( query );
 		} else {
-			return res.render( 'admin', query );
+			return res.render( 'blog', query );
 		}		
 
 	};
@@ -77,16 +79,15 @@
 			, date: new Date()
 		};
 
-		console.log( data );
-
 		var query = {
 			admin: req.isAdmin
+			, page: 'posts-single'
 		};
 
 		if ( req.ajax ) {
 			return res.send( query );
 		} else {
-			return res.render( 'admin', query );
+			return res.render( 'blog', query );
 		}
 	};
 
@@ -98,16 +99,15 @@
 			, date: new Date()
 		};
 
-		console.log( data );
-
 		var query = {
 			admin: req.isAdmin
+			, page: 'posts-single'
 		};
 
 		if ( req.ajax ) {
 			return res.send( query );
 		} else {
-			return res.render( 'admin', query );
+			return res.render( 'blog', query );
 		}
 	};
 

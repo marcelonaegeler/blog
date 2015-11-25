@@ -1,0 +1,8 @@
+if posts
+	for post in posts
+		div.post.content-body
+			h1
+				a(href="/post/#{ post.slug }")
+					span= ( post.title || 'Title' )
+			div.post-content
+				span= ( post.content || 'Your text goes here...' )

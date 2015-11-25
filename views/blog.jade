@@ -17,11 +17,22 @@ block body
 				| All posts
 
 		div#view-body
-			//- List posts
-			- for post in posts
-				div.post
-					h1
-						a.navigation(href="#{ post.link || '#' }")= post.title
-					div
-						|= post.content
+	
 
+			if page === 'posts-all'
+				a.navigation.btn.btn-floating(href="/admin/post")
+					i.mdi.mdi-plus
+						
+				include ./pages/posts-all.jade
+			
+			else if page === 'posts-single'
+				include ./pages/posts-single.jade
+
+			else if page === 'works-all'
+				a.navigation.btn.btn-floating(href="/admin/post")
+					i.mdi.mdi-plus
+
+				include ./pages/works-all.jade
+
+			else if page === 'works-single'
+				include ./pages/works-single.jade
