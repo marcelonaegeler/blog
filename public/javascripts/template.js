@@ -6,6 +6,7 @@ let template = (() => {
 		post: '<div class="post content-body"><h1><a href="/post/{{slug}}" class="navigation">{{title}}</a></h1><p class="author">{{author}}</p><div>{{content}}</div></div>'
 		, loading: '<div class="post text-center">loading...</div>'
 		, notFound: '<div class="post text-center not-found">404 - Not found :(</div>'
+		, modalPost: '<div class="modal"></div>'
 	};
 
 	let template = ( type, data ) => {

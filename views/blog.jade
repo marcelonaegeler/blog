@@ -7,32 +7,36 @@ block script
 	script(src="/build/javascripts/script.min.js")
 
 block body
-	include ./layout/header.jade
+	section#main
+		include ./layout/header.jade
 
-	div.content
+		div.content
 
-		div.text-right
-			a.btn.navigation(href="/")
-				i.mdi.mdi-apps
-				| All posts
+			div.text-right
+				a.btn.navigation(href="/")
+					i.mdi.mdi-apps
+					| All posts
 
-		div#view-body
-	
+			div#view-body
+		
 
-			if page === 'posts-all'
-				a.navigation.btn.btn-floating(href="/admin/post")
-					i.mdi.mdi-plus
-						
-				include ./pages/posts-all.jade
-			
-			else if page === 'posts-single'
-				include ./pages/posts-single.jade
+				if page === 'posts-all'
+					a.btn.btn-floating.action-trigger(href="#", data-modal="post")
+						i.mdi.mdi-plus
+							
+					include ./pages/posts-all.jade
+					
+				
+				else if page === 'posts-single'
+					include ./pages/posts-single.jade
 
-			else if page === 'works-all'
-				a.navigation.btn.btn-floating(href="/admin/post")
-					i.mdi.mdi-plus
+				else if page === 'works-all'
+					a.navigation.btn.btn-floating(href="/admin/post")
+						i.mdi.mdi-plus
 
-				include ./pages/works-all.jade
+					include ./pages/works-all.jade
 
-			else if page === 'works-single'
-				include ./pages/works-single.jade
+				else if page === 'works-single'
+					include ./pages/works-single.jade
+
+	include ./pages/post-modal.jade

@@ -1,4 +1,4 @@
-HTMLCollection.prototype.addEvent = function ( e, f ) {
+var multipleEventHandler = function ( e, f ) {
 	for ( var i = 0, len = this.length; i < len; i++ ) {
 		var element = this[ i ];
 		
@@ -9,6 +9,8 @@ HTMLCollection.prototype.addEvent = function ( e, f ) {
 		})( element );
 	}
 };
+HTMLCollection.prototype.addEvent = multipleEventHandler;
+NodeList.prototype.addEvent = multipleEventHandler;
 
 let app = (() => {
 
